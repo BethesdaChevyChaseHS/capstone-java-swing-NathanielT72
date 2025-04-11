@@ -3,22 +3,49 @@
  */
 package bcc.sportsquiz;
 
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.border.LineBorder;
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class App {
-    public String getGreeting() {
-        return "Hello World!";
-    }
-
     public static void main(String[] args) {
-        System.out.println(new App().getGreeting());
-        
+      
+      //create frame  
         JFrame frame =new JFrame();//creating instance of JFrame  
+        //create label
+      JLabel titleLabel =new JLabel("Welcome to THE Sports Quiz");  
+      titleLabel.setBounds(50,5, 300,100);
+      titleLabel.setFont(new Font("Arial", Font.BOLD, 16));  
+      frame.add(titleLabel); 
 
-      JLabel label =new JLabel("hello world");  
-      label.setBounds(250,50, 100,30);  
-      frame.add(label); 
+        //create button
+        JButton nextPageButton = new JButton("Take a Test");
+        nextPageButton.setBounds(125, 150, 150, 50); // Position the button in the center
+        nextPageButton.setFont(new Font("Verdana", Font.BOLD, 18)); // Set a nicer font for the button
+        nextPageButton.setBackground(Color.WHITE); // Set button background color
+        nextPageButton.setForeground(Color.BLACK); // Set button text color
+        nextPageButton.setFocusPainted(false); // Remove focus border
+        nextPageButton.setBorder(new LineBorder(Color.BLACK, 2, true)); // Add rounded border
+        frame.add(nextPageButton);
+
+        // Add action listener to the button
+        nextPageButton.addActionListener(new ActionListener() {
+          @Override
+          public void actionPerformed(ActionEvent e) {
+            System.out.println("hi");  
+            frame.dispose(); // Close the current frame
+            SelectQuiz.display(); // Open the Select Quiz screen
+          }
+      });
+        
+
+        //set frame properties
+      frame.getContentPane().setBackground(Color.CYAN);
             frame.setSize(400,400);  
             frame.setLayout(null);  
             frame.setVisible(true); 
