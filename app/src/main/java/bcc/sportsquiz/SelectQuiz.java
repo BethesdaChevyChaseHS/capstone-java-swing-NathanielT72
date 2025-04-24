@@ -29,13 +29,22 @@ public class SelectQuiz {
 
         // First row (2 buttons)
         for (int i = 0; i < 2; i++) {
-            JButton button = new JButton(sports[i]);
+            final JButton button = new JButton(sports[i]);
             button.setBounds(startX + (i * (buttonWidth + spacing)), startY, buttonWidth, buttonHeight);
             button.setFont(new Font("Verdana", Font.PLAIN, 14));
+            final int index = i;
             if (i == 0) {
                 button.setBackground(new Color(34, 139, 34)); // Football - Dark Green
+                button.addActionListener(e -> {
+                    frame.dispose();
+                    footballQuestions.display();
+                });
             } else {
                 button.setBackground(new Color(65, 105, 225)); // Soccer - Royal Blue
+                button.addActionListener(e -> {
+                    frame.dispose();
+                    soccerQuestions.display();
+                });
             }
             button.setForeground(Color.BLACK);
             frame.add(button);
@@ -43,18 +52,25 @@ public class SelectQuiz {
 
         // Second row (2 buttons)
         for (int i = 2; i < 4; i++) {
-            JButton button = new JButton(sports[i]);
+            final JButton button = new JButton(sports[i]);
             button.setBounds(startX + ((i-2) * (buttonWidth + spacing)), startY + buttonHeight + spacing, buttonWidth, buttonHeight);
             button.setFont(new Font("Verdana", Font.PLAIN, 14));
             if (i == 2) {
                 button.setBackground(new Color(255, 140, 0)); // Basketball - Orange
+                button.addActionListener(e -> {
+                    frame.dispose();
+                    basketballQuestions.display();
+                });
             } else {
                 button.setBackground(new Color(178, 34, 34)); // Baseball - Red
+                button.addActionListener(e -> {
+                    frame.dispose();
+                    baseballQuestions.display();
+                });
             }
             button.setForeground(Color.BLACK);
             frame.add(button);
         }
-
         // Last button (centered)
         JButton randomButton = new JButton(sports[4]);
         randomButton.setBounds(startX + (buttonWidth/2) + (spacing/2), startY + 2*(buttonHeight + spacing), buttonWidth, buttonHeight);
