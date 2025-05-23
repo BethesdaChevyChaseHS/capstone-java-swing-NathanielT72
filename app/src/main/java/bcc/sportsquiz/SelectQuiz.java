@@ -40,18 +40,18 @@ public class SelectQuiz {
             
             if (i == 0) {
                 // Configure Football button
-                button.setBackground(new Color(34, 139, 34));  // Dark Green color
-                button.addActionListener(e -> {
-                    frame.dispose();  // Close selection screen
-                    footballQuestions.display();  // Open football quiz
-                });
+            button.setBackground(new Color(34, 139, 34));  // Dark Green color
+            button.addActionListener(e -> {
+                frame.dispose();
+                QuizManager.startQuiz("Football");
+            });
             } else {
                 // Configure Soccer button
                 button.setBackground(new Color(65, 105, 225));  // Royal Blue color
-                button.addActionListener(e -> {
-                    frame.dispose();  // Close selection screen
-                    soccerQuestions.display();  // Open soccer quiz
-                });
+            button.addActionListener(e -> {
+                frame.dispose();
+                QuizManager.startQuiz("Soccer");
+            });
             }
             button.setForeground(Color.BLACK);  // Set text color
             frame.add(button);  // Add button to frame
@@ -70,17 +70,17 @@ public class SelectQuiz {
             if (i == 2) {
                 // Configure Basketball button
                 button.setBackground(new Color(255, 140, 0));  // Orange color
-                button.addActionListener(e -> {
-                    frame.dispose();  // Close selection screen
-                    basketballQuestions.display();  // Open basketball quiz
-                });
+            button.addActionListener(e -> {
+                frame.dispose();
+                QuizManager.startQuiz("Basketball");
+            });
             } else {
                 // Configure Baseball button
                 button.setBackground(new Color(178, 34, 34));  // Red color
-                button.addActionListener(e -> {
-                    frame.dispose();  // Close selection screen
-                    baseballQuestions.display();  // Open baseball quiz
-                });
+            button.addActionListener(e -> {
+                frame.dispose();
+                QuizManager.startQuiz("Baseball");
+        });
             }
             button.setForeground(Color.BLACK);
             frame.add(button);
@@ -98,7 +98,7 @@ public class SelectQuiz {
         randomButton.setForeground(Color.BLACK);
         randomButton.addActionListener(e -> {
             frame.dispose();  // Close selection screen
-            randomQuestions.display();  // Open random quiz screen
+            QuizManager.startQuiz("Random");  // Open random quiz using random questions CSV
         });
         frame.add(randomButton);
 

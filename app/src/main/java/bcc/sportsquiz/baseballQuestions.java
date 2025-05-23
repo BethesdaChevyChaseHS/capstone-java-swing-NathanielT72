@@ -151,14 +151,14 @@ public class baseballQuestions {
     private static void showEndScreen() {
         // Create and configure the end screen window
         JFrame endFrame = new JFrame("Quiz Complete");
-        endFrame.setSize(400, 200);
+        endFrame.setSize(600, 400);
         endFrame.setLayout(null);
         endFrame.getContentPane().setBackground(Color.CYAN);
         
         // Create and configure the score display label
         JLabel endLabel = new JLabel(String.format("<html>Quiz Complete!<br>Your Score: %d/%d</html>", 
             score, allQuestions.size()));
-        endLabel.setBounds(100, 50, 200, 50);
+        endLabel.setBounds(210, 150, 200, 50);
         endLabel.setFont(new Font("Verdana", Font.BOLD, 20));
         endLabel.setHorizontalAlignment(JLabel.CENTER);
         endFrame.add(endLabel);
